@@ -1,66 +1,150 @@
 {
-  "title": "GfaU Bingo",
+  "title": "GfaU Bingo 2026",
   "gridSize": 5,
-  "calledSentences": [],
+  "calledSentences": [
+    "USA entsendet bodentruppen in ein fremdes Land"
+  ],
+  "secrets": [
+    "Tido Secret",
+    "Freddy Secret",
+    "Vinc Secret",
+    "Valle Secret"
+  ],
   "players": [
     {
-      "name": "Alice",
+      "name": "Tido",
       "card": [
-        "\"I'll do it later\"",
-        "Someone's mic is on mute",
-        "\"Can everyone hear me?\"",
-        "Awkward silence after a joke",
-        "\"Just to piggyback on that...\"",
-        "Meeting could have been an email",
-        "\"Sorry, I was on mute\"",
-        "Someone joins 10 minutes late",
-        "\"Going forward...\"",
-        "FREE SPACE",
-        "Background dog barking",
-        "\"Circle back on that\"",
-        "\"Take this offline\"",
-        "Unexpected screen share",
-        "\"Let's make sure we're aligned\"",
-        "\"At the end of the day...\"",
-        "Someone forgets to unmute",
-        "\"Synergy\"",
-        "Wi-Fi cuts out mid-sentence",
-        "\"Moving the needle\"",
-        "\"Quick question\" (not quick)",
-        "\"Low-hanging fruit\"",
-        "Accidentally talks to someone off-screen",
-        "\"Bandwidth\" (not about internet)",
-        "\"Ping me about that\""
+        "BTC<$50,000",
+        "FED EFFR weniger als 2.75%",
+        "GTA VI wird nicht released",
+        "Deutschland verliert rang in pisa studie",
+        "Valle Secret",
+
+        "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
+        "Ukraine kriegt endet NICHT",
+        "Deutschland gewinnt WM 2026",
+        "Putin stribt",
+        "Erdbeben >6.0 trifft Istanbul",
+
+        "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
+        "Vinc Secret",
+        "O",
+        "USA fällt in recession",
+        "NVDA 7 trillion dollar market cap",
+
+        "Tido Secret",
+        "Strom preis über EUR90 pro MWh",
+        "KI chat wird mit Werbung eingebaut werden in 2026",
+        "USA entsendet bodentruppen in ein fremdes Land",
+        "MSTR verkauft Bitcoins in 2026",
+
+        "Freddy Secret",
+        "AFD hold durchschn. 33% in 5 Landtagswahlen",
+        "Iphone fold release",
+        "Deutsche Bahn <10% verspätung in einem Monat",
+        "Donald Trump bekommt einen Nobelpreis"
       ]
     },
     {
-      "name": "Bob",
+      "name": "Freddy",
       "card": [
-        "\"Synergy\"",
-        "\"Sorry, I was on mute\"",
-        "\"Let's take this offline\"",
-        "Someone joins 10 minutes late",
-        "\"Ping me about that\"",
-        "\"At the end of the day...\"",
-        "Unexpected screen share",
-        "\"Can everyone hear me?\"",
-        "\"Low-hanging fruit\"",
-        "FREE SPACE",
-        "\"Moving the needle\"",
-        "Meeting could have been an email",
-        "Wi-Fi cuts out mid-sentence",
-        "\"Going forward...\"",
-        "Background dog barking",
-        "\"I'll do it later\"",
-        "\"Just to piggyback on that...\"",
-        "Awkward silence after a joke",
-        "\"Circle back on that\"",
-        "Someone's mic is on mute",
-        "\"Quick question\" (not quick)",
-        "\"Let's make sure we're aligned\"",
-        "Someone forgets to unmute",
-        "\"Bandwidth\" (not about internet)",
-        "Accidentally talks to someone off-screen"
+        "Deutsche Bahn <10% verspätung in einem Monat",
+        "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
+        "Strom preis über EUR90 pro MWh",
+        "Vinc Secret",
+        "KI chat wird mit Werbung eingebaut werden in 2026",
+
+        "Donald Trump bekommt einen Nobelpreis",
+        "USA entsendet bodentruppen in ein fremdes Land",
+        "FED EFFR weniger als 2.75%",
+        "GTA VI wird nicht released",
+        "Erdbeben >6.0 trifft Istanbul",
+
+        "NVDA 7 trillion dollar market cap",
+        "Tido Secret",
+        "O",
+        "Freddy Secret",
+        "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
+
+        "Ukraine kriegt endet NICHT",
+        "BTC<$50,000",
+        "AFD hold durchschn. 33% in 5 Landtagswahlen",
+        "Iphone fold release",
+        "Deutschland gewinnt WM 2026",
+
+        "USA fällt in recession",
+        "Putin stribt",
+        "Deutschland verliert rang in pisa studie",
+        "MSTR verkauft Bitcoins in 2026",
+        "Valle Secret"
+      ]
+    },
+    {
+      "name": "Vinc",
+      "card": [
+        "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
+        "Iphone fold release",
+        "FED EFFR weniger als 2.75%",
+        "MSTR verkauft Bitcoins in 2026",
+        "GTA VI wird nicht released",
+
+        "BTC<$50,000",
+        "USA entsendet bodentruppen in ein fremdes Land",
+        "Donald Trump bekommt einen Nobelpreis",
+        "Valle Secret",
+        "Strom preis über EUR90 pro MWh",
+
+        "Putin stribt",
+        "Tido Secret",
+        "O",
+        "AFD hold durchschn. 33% in 5 Landtagswahlen",
+        "Deutschland gewinnt WM 2026",
+
+        "NVDA 7 trillion dollar market cap",
+        "Erdbeben >6.0 trifft Istanbul",
+        "Deutsche Bahn <10% verspätung in einem Monat",
+        "Vinc Secret",
+        "Ukraine kriegt endet NICHT",
+
+        "Freddy Secret",
+        "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
+        "Deutschland verliert rang in pisa studie",
+        "KI chat wird mit Werbung eingebaut werden in 2026",
+        "USA fällt in recession"
+      ]
+    },
+    {
+      "name": "Valle",
+      "card": [
+        "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
+        "Freddy Secret",
+        "MSTR verkauft Bitcoins in 2026",
+        "Ukraine kriegt endet NICHT",
+        "Donald Trump bekommt einen Nobelpreis",
+
+        "AFD hold durchschn. 33% in 5 Landtagswahlen",
+        "USA entsendet bodentruppen in ein fremdes Land",
+        "NVDA 7 trillion dollar market cap",
+        "Deutschland gewinnt WM 2026",
+        "Tido Secret",
+
+        "KI chat wird mit Werbung eingebaut werden in 2026",
+        "Iphone fold release",
+        "O",
+        "Deutsche Bahn <10% verspätung in einem Monat",
+        "Erdbeben >6.0 trifft Istanbul",
+
+        "Deutschland verliert rang in pisa studie",
+        "Putin stribt",
+        "GTA VI wird nicht released",
+        "FED EFFR weniger als 2.75%",
+        "Strom preis über EUR90 pro MWh",
+
+        "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
+        "USA fällt in recession",
+        "BTC<$50,000",
+        "Vinc Secret",
+        "Valle Secret"
       ]
     }
   ]

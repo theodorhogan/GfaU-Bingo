@@ -26,7 +26,7 @@
   </footer>
 
   <script>
-    const FREE_LABELS = ["FREE SPACE", "FREE", "WILD", "FREE SQUARE"];
+    const FREE_LABELS = ["FREE SPACE", "FREE", "WILD", "FREE SQUARE", "O"];
 
     function isFree(text) {
       return FREE_LABELS.includes(text.trim().toUpperCase());
@@ -73,13 +73,14 @@
         .join("");
     }
 
-    function renderPlayer(player, calledSet, gridSize) {
+    function renderPlayer(player, calledSet, secretSet, gridSize) {
       const card = document.createElement("div");
       card.className = "player-card";
 
       const calledCount = player.card.filter(
-        c => !isFree(c) && calledSet.has(normalize(c))
+        c => !isFree(c) && !secretSet.has(normalize(c)) && calledSet.has(normalize(c))
       ).length;
+      const totalNonFree = player.card.filter(c => !isFree(c) && !secretSet.has(normalize(c))).length;
 
       const hasBingo = checkBingo(player.card, calledSet, gridSize);
 
@@ -94,7 +95,7 @@
       nameEl.className = "player-name";
       nameEl.innerHTML = `
         <span>${escHtml(player.name)}</span>
-        <span class="player-score">${calledCount} / ${player.card.filter(c => !isFree(c)).length} called</span>
+        <span class="player-score">${calledCount} / ${totalNonFree} called</span>
       `;
       card.appendChild(nameEl);
 
@@ -108,9 +109,13 @@
 
         if (isFree(sentence)) {
           cell.classList.add("free");
-          cell.textContent = "FREE";
+          cell.textContent = sentence.trim().toUpperCase() === "O" ? "O" : "FREE";
         } else if (calledSet.has(normalize(sentence))) {
           cell.classList.add("called");
+          if (secretSet.has(normalize(sentence))) cell.classList.add("secret");
+          cell.textContent = sentence;
+        } else if (secretSet.has(normalize(sentence))) {
+          cell.classList.add("secret");
           cell.textContent = sentence;
         } else {
           cell.textContent = sentence;
@@ -137,7 +142,7 @@
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
 
-        const { title, gridSize = 5, calledSentences = [], players = [] } = data;
+        const { title, gridSize = 5, calledSentences = [], secrets = [], players = [] } = data;
 
         document.title = title || "Bingo";
         document.getElementById("game-title").textContent = title || "Bingo";
@@ -147,11 +152,12 @@
           `${called} sentence${called === 1 ? "" : "s"} called · ${players.length} player${players.length === 1 ? "" : "s"}`;
 
         const calledSet = new Set(calledSentences.map(normalize));
+        const secretSet = new Set(secrets.map(normalize));
         renderCalledPanel(calledSentences);
 
         const playersEl = document.getElementById("players");
         players.forEach(player => {
-          playersEl.appendChild(renderPlayer(player, calledSet, gridSize));
+          playersEl.appendChild(renderPlayer(player, calledSet, secretSet, gridSize));
         });
 
       } catch (err) {
