@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GfaU Bingo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1 id="game-title">Bingo</h1>
+    <p class="subtitle" id="game-subtitle">Loading...</p>
+  </header>
+
+  <section id="called-panel">
+    <h2>Called Sentences</h2>
+    <div id="called-list"></div>
+  </section>
+
+  <div id="error" style="display:none"></div>
+  <section id="players"></section>
+
+  <footer>
+    <p>Last updated when the page was last pushed &mdash; <a href="https://github.com" target="_blank" rel="noopener">View on GitHub</a></p>
+  </footer>
+
+  <script>
+    const FREE_LABELS = ["FREE SPACE", "FREE", "WILD", "FREE SQUARE"];
+
+    function isFree(text) {
+      return FREE_LABELS.includes(text.trim().toUpperCase());
+    }
+
+    function normalize(str) {
+      return str.trim().toLowerCase();
+    }
+
+    function checkBingo(cells, calledSet, gridSize) {
+      // cells is a flat array [row0col0, row0col1, ...]
+      // Returns true if any row, column, or diagonal is fully called/free
+      const grid = [];
+      for (let r = 0; r < gridSize; r++) {
+        grid.push(cells.slice(r * gridSize, (r + 1) * gridSize));
+      }
+
+      const hit = (cell) => isFree(cell) || calledSet.has(normalize(cell));
+
+      // Rows
+      for (let r = 0; r < gridSize; r++) {
+        if (grid[r].every(hit)) return true;
+      }
+      // Columns
+      for (let c = 0; c < gridSize; c++) {
+        if (grid.map(row => row[c]).every(hit)) return true;
+      }
+      // Diagonal top-left to bottom-right
+      if (grid.map((row, i) => row[i]).every(hit)) return true;
+      // Diagonal top-right to bottom-left
+      if (grid.map((row, i) => row[gridSize - 1 - i]).every(hit)) return true;
+
+      return false;
+    }
+
+    function renderCalledPanel(calledSentences) {
+      const list = document.getElementById("called-list");
+      if (calledSentences.length === 0) {
+        list.innerHTML = '<span class="none-called">No sentences called yet.</span>';
+        return;
+      }
+      list.innerHTML = calledSentences
+        .map(s => `<span class="called-tag">${escHtml(s)}</span>`)
+        .join("");
+    }
+
+    function renderPlayer(player, calledSet, gridSize) {
+      const card = document.createElement("div");
+      card.className = "player-card";
+
+      const calledCount = player.card.filter(
+        c => !isFree(c) && calledSet.has(normalize(c))
+      ).length;
+
+      const hasBingo = checkBingo(player.card, calledSet, gridSize);
+
+      if (hasBingo) {
+        const banner = document.createElement("div");
+        banner.className = "bingo-banner";
+        banner.textContent = "🎉 BINGO!";
+        card.appendChild(banner);
+      }
+
+      const nameEl = document.createElement("div");
+      nameEl.className = "player-name";
+      nameEl.innerHTML = `
+        <span>${escHtml(player.name)}</span>
+        <span class="player-score">${calledCount} / ${player.card.filter(c => !isFree(c)).length} called</span>
+      `;
+      card.appendChild(nameEl);
+
+      const grid = document.createElement("div");
+      grid.className = "bingo-grid";
+      grid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+
+      player.card.forEach(sentence => {
+        const cell = document.createElement("div");
+        cell.className = "bingo-cell";
+
+        if (isFree(sentence)) {
+          cell.classList.add("free");
+          cell.textContent = "FREE";
+        } else if (calledSet.has(normalize(sentence))) {
+          cell.classList.add("called");
+          cell.textContent = sentence;
+        } else {
+          cell.textContent = sentence;
+        }
+
+        grid.appendChild(cell);
+      });
+
+      card.appendChild(grid);
+      return card;
+    }
+
+    function escHtml(str) {
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    async function init() {
+      try {
+        const res = await fetch("data.json");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        const { title, gridSize = 5, calledSentences = [], players = [] } = data;
+
+        document.title = title || "Bingo";
+        document.getElementById("game-title").textContent = title || "Bingo";
+
+        const called = calledSentences.length;
+        document.getElementById("game-subtitle").textContent =
+          `${called} sentence${called === 1 ? "" : "s"} called · ${players.length} player${players.length === 1 ? "" : "s"}`;
+
+        const calledSet = new Set(calledSentences.map(normalize));
+        renderCalledPanel(calledSentences);
+
+        const playersEl = document.getElementById("players");
+        players.forEach(player => {
+          playersEl.appendChild(renderPlayer(player, calledSet, gridSize));
+        });
+
+      } catch (err) {
+        document.getElementById("error").style.display = "block";
+        document.getElementById("error").textContent =
+          `Could not load game data: ${err.message}. Make sure data.json is present.`;
+        document.getElementById("game-subtitle").textContent = "Error loading data";
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "title": "GfaU Bingo",
+  "gridSize": 5,
+  "calledSentences": [],
+  "players": [
+    {
+      "name": "Alice",
+      "card": [
+        "\"I'll do it later\"",
+        "Someone's mic is on mute",
+        "\"Can everyone hear me?\"",
+        "Awkward silence after a joke",
+        "\"Just to piggyback on that...\"",
+        "Meeting could have been an email",
+        "\"Sorry, I was on mute\"",
+        "Someone joins 10 minutes late",
+        "\"Going forward...\"",
+        "FREE SPACE",
+        "Background dog barking",
+        "\"Circle back on that\"",
+        "\"Take this offline\"",
+        "Unexpected screen share",
+        "\"Let's make sure we're aligned\"",
+        "\"At the end of the day...\"",
+        "Someone forgets to unmute",
+        "\"Synergy\"",
+        "Wi-Fi cuts out mid-sentence",
+        "\"Moving the needle\"",
+        "\"Quick question\" (not quick)",
+        "\"Low-hanging fruit\"",
+        "Accidentally talks to someone off-screen",
+        "\"Bandwidth\" (not about internet)",
+        "\"Ping me about that\""
+      ]
+    },
+    {
+      "name": "Bob",
+      "card": [
+        "\"Synergy\"",
+        "\"Sorry, I was on mute\"",
+        "\"Let's take this offline\"",
+        "Someone joins 10 minutes late",
+        "\"Ping me about that\"",
+        "\"At the end of the day...\"",
+        "Unexpected screen share",
+        "\"Can everyone hear me?\"",
+        "\"Low-hanging fruit\"",
+        "FREE SPACE",
+        "\"Moving the needle\"",
+        "Meeting could have been an email",
+        "Wi-Fi cuts out mid-sentence",
+        "\"Going forward...\"",
+        "Background dog barking",
+        "\"I'll do it later\"",
+        "\"Just to piggyback on that...\"",
+        "Awkward silence after a joke",
+        "\"Circle back on that\"",
+        "Someone's mic is on mute",
+        "\"Quick question\" (not quick)",
+        "\"Let's make sure we're aligned\"",
+        "Someone forgets to unmute",
+        "\"Bandwidth\" (not about internet)",
+        "Accidentally talks to someone off-screen"
+      ]
+    }
+  ]
+}
