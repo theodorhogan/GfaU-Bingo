@@ -16,12 +16,12 @@
   <div id="year-tabs" role="tablist" aria-label="Jahr auswählen"></div>
 
   <section id="called-panel">
-    <h2>Was ist schon dieses Jahr passiert?</h2>
+    <h2 id="called-heading"></h2>
     <div id="called-list"></div>
   </section>
 
   <section id="expired-panel" style="display:none">
-    <h2>Kann nicht mehr passieren</h2>
+    <h2 id="expired-heading"></h2>
     <div id="expired-list"></div>
   </section>
 
@@ -29,10 +29,45 @@
   <section id="players"></section>
 
   <footer>
-    <p>Zuletzt aktualisiert beim letzten Push &mdash; <a href="https://github.com/theodorhogan/GfaU-Bingo" target="_blank" rel="noopener">Auf GitHub ansehen</a></p>
+    <p id="footer-text"></p>
   </footer>
 
   <script>
+    // ── Global state ─────────────────────────────────────────────────────────
+    let currentLang      = 'de';
+    let currentYearData  = null;
+    let allYears         = [];
+    let translations     = {};
+
+    // ── UI strings ───────────────────────────────────────────────────────────
+    const UI = {
+      de: {
+        loading:        'Lädt...',
+        calledHeading:  'Was ist schon dieses Jahr passiert?',
+        expiredHeading: 'Kann nicht mehr passieren',
+        nothingYet:     'Noch nichts passiert.',
+        hitLabel:       'Treffer',
+        expiredLabel:   'abgelaufen',
+        playersLabel:   'Spieler',
+        scoreLabel:     'getroffen',
+        footerText:     'Zuletzt aktualisiert beim letzten Push &mdash; <a href="https://github.com/theodorhogan/GfaU-Bingo" target="_blank" rel="noopener">Auf GitHub ansehen</a>',
+        langBtn:        'EN',
+      },
+      en: {
+        loading:        'Loading...',
+        calledHeading:  'What has already happened this year?',
+        expiredHeading: 'Can no longer happen',
+        nothingYet:     'Nothing yet.',
+        hitLabel:       'hits',
+        expiredLabel:   'expired',
+        playersLabel:   'players',
+        scoreLabel:     'called',
+        footerText:     'Last updated on last push &mdash; <a href="https://github.com/theodorhogan/GfaU-Bingo" target="_blank" rel="noopener">View on GitHub</a>',
+        langBtn:        'DE',
+      }
+    };
+
+    // ── Helpers ───────────────────────────────────────────────────────────────
     const FREE_LABELS = ["FREE SPACE", "FREE", "WILD", "FREE SQUARE", "O"];
 
     function isFree(text) {
@@ -51,12 +86,20 @@
         .replace(/"/g, "&quot;");
     }
 
+    // Translate a sentence if EN mode is active
+    function tr(sentence) {
+      if (currentLang === 'en') {
+        return translations[normalize(sentence)] || sentence;
+      }
+      return sentence;
+    }
+
+    // ── Bingo check ───────────────────────────────────────────────────────────
     function checkBingo(cells, calledSet, gridSize) {
       const grid = [];
       for (let r = 0; r < gridSize; r++) {
         grid.push(cells.slice(r * gridSize, (r + 1) * gridSize));
       }
-      // Expired cells are NOT in calledSet, so they naturally don't count
       const hit = (cell) => isFree(cell) || calledSet.has(normalize(cell));
 
       for (let r = 0; r < gridSize; r++) {
@@ -71,31 +114,50 @@
       return false;
     }
 
-    function renderYearTabs(years, activeYear) {
+    // ── Render: year tabs + lang toggle ───────────────────────────────────────
+    function renderControls(years, activeYear) {
       const container = document.getElementById("year-tabs");
       container.innerHTML = "";
+
       years.forEach(yearData => {
         const btn = document.createElement("button");
         btn.className = "year-tab" + (yearData.year === activeYear ? " active" : "");
         btn.textContent = yearData.year;
         btn.setAttribute("role", "tab");
         btn.setAttribute("aria-selected", yearData.year === activeYear);
-        btn.onclick = () => loadYear(yearData, years);
+        btn.onclick = () => loadYear(yearData);
         container.appendChild(btn);
       });
+
+      // Language toggle — pushed to the right
+      const lang = document.createElement("button");
+      lang.id = "lang-toggle";
+      lang.className = "lang-btn";
+      lang.textContent = UI[currentLang].langBtn;
+      lang.title = currentLang === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln';
+      lang.onclick = () => {
+        currentLang = currentLang === 'de' ? 'en' : 'de';
+        document.documentElement.lang = currentLang;
+        if (currentYearData) loadYear(currentYearData);
+      };
+      container.appendChild(lang);
     }
 
+    // ── Render: called panel ──────────────────────────────────────────────────
     function renderCalledPanel(calledSentences) {
+      const ui = UI[currentLang];
+      document.getElementById("called-heading").textContent = ui.calledHeading;
       const list = document.getElementById("called-list");
       if (calledSentences.length === 0) {
-        list.innerHTML = '<span class="none-called">Noch nichts passiert.</span>';
+        list.innerHTML = `<span class="none-called">${ui.nothingYet}</span>`;
         return;
       }
       list.innerHTML = calledSentences
-        .map(s => `<span class="called-tag">${escHtml(s)}</span>`)
+        .map(s => `<span class="called-tag">${escHtml(tr(s))}</span>`)
         .join("");
     }
 
+    // ── Render: expired panel ─────────────────────────────────────────────────
     function renderExpiredPanel(expiredSentences) {
       const panel = document.getElementById("expired-panel");
       if (!expiredSentences || expiredSentences.length === 0) {
@@ -103,11 +165,13 @@
         return;
       }
       panel.style.display = "block";
+      document.getElementById("expired-heading").textContent = UI[currentLang].expiredHeading;
       document.getElementById("expired-list").innerHTML = expiredSentences
-        .map(s => `<span class="expired-tag">${escHtml(s)}</span>`)
+        .map(s => `<span class="expired-tag">${escHtml(tr(s))}</span>`)
         .join("");
     }
 
+    // ── Render: single player card ────────────────────────────────────────────
     function renderPlayer(player, calledSet, expiredSet, secretSet, gridSize) {
       const card = document.createElement("div");
       card.className = "player-card";
@@ -119,9 +183,7 @@
         c => !isFree(c) && !secretSet.has(normalize(c))
       ).length;
 
-      const hasBingo = checkBingo(player.card, calledSet, gridSize);
-
-      if (hasBingo) {
+      if (checkBingo(player.card, calledSet, gridSize)) {
         const banner = document.createElement("div");
         banner.className = "bingo-banner";
         banner.textContent = "🎉 BINGO!";
@@ -132,7 +194,7 @@
       nameEl.className = "player-name";
       nameEl.innerHTML = `
         <span>${escHtml(player.name)}</span>
-        <span class="player-score">${calledCount} / ${totalNonFree} getroffen</span>
+        <span class="player-score">${calledCount} / ${totalNonFree} ${UI[currentLang].scoreLabel}</span>
       `;
       card.appendChild(nameEl);
 
@@ -149,16 +211,16 @@
           cell.textContent = sentence.trim().toUpperCase() === "O" ? "O" : "FREE";
         } else if (expiredSet.has(normalize(sentence))) {
           cell.classList.add("expired");
-          cell.textContent = sentence;
+          cell.textContent = tr(sentence);
         } else if (calledSet.has(normalize(sentence))) {
           cell.classList.add("called");
           if (secretSet.has(normalize(sentence))) cell.classList.add("secret");
-          cell.textContent = sentence;
+          cell.textContent = tr(sentence);
         } else if (secretSet.has(normalize(sentence))) {
           cell.classList.add("secret");
-          cell.textContent = sentence;
+          cell.textContent = tr(sentence);
         } else {
-          cell.textContent = sentence;
+          cell.textContent = tr(sentence);
         }
 
         grid.appendChild(cell);
@@ -168,18 +230,26 @@
       return card;
     }
 
-    function loadYear(yearData, allYears) {
+    // ── Load a year ───────────────────────────────────────────────────────────
+    function loadYear(yearData) {
+      currentYearData = yearData;
+
       const calledSet  = new Set(yearData.calledSentences.map(normalize));
       const expiredSet = new Set((yearData.expiredSentences || []).map(normalize));
       const secretSet  = new Set((yearData.secrets || []).map(normalize));
       const gridSize   = yearData.gridSize || 5;
+      const ui         = UI[currentLang];
 
-      const called   = yearData.calledSentences.length;
-      const expired  = (yearData.expiredSentences || []).length;
-      const subtitle = `${yearData.year} · ${called} Treffer · ${expired > 0 ? expired + " abgelaufen · " : ""}${yearData.players.length} Spieler`;
-      document.getElementById("game-subtitle").textContent = subtitle;
+      const called  = yearData.calledSentences.length;
+      const expired = (yearData.expiredSentences || []).length;
+      const parts   = [`${yearData.year}`, `${called} ${ui.hitLabel}`];
+      if (expired > 0) parts.push(`${expired} ${ui.expiredLabel}`);
+      parts.push(`${yearData.players.length} ${ui.playersLabel}`);
+      document.getElementById("game-subtitle").textContent = parts.join(" · ");
 
-      renderYearTabs(allYears, yearData.year);
+      document.getElementById("footer-text").innerHTML = ui.footerText;
+
+      renderControls(allYears, yearData.year);
       renderCalledPanel(yearData.calledSentences);
       renderExpiredPanel(yearData.expiredSentences || []);
 
@@ -190,25 +260,26 @@
       });
     }
 
+    // ── Init ──────────────────────────────────────────────────────────────────
     async function init() {
       try {
         const res = await fetch("data.json", { cache: "no-cache" });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
 
-        const years = data.years || [];
-        if (years.length === 0) throw new Error("Keine Jahresdaten gefunden");
+        allYears     = data.years || [];
+        translations = data.translations || {};
+
+        if (allYears.length === 0) throw new Error("No year data found");
 
         document.title = data.title || "Bingo";
         document.getElementById("game-title").textContent = data.title || "Bingo";
 
-        // Default to the most recent year (first in array)
-        loadYear(years[0], years);
+        loadYear(allYears[0]);
 
       } catch (err) {
         document.getElementById("error").style.display = "block";
-        document.getElementById("error").textContent =
-          `Fehler beim Laden: ${err.message}`;
+        document.getElementById("error").textContent = `Fehler beim Laden: ${err.message}`;
         document.getElementById("game-subtitle").textContent = "Fehler";
       }
     }
