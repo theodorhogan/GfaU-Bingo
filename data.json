@@ -1,150 +1,309 @@
 {
-  "title": "GfaU Bingo 2026",
-  "gridSize": 5,
-  "calledSentences": [
-    "USA entsendet bodentruppen in ein fremdes Land"
-  ],
-  "secrets": [
-    "Tido Secret",
-    "Freddy Secret",
-    "Vinc Secret",
-    "Valle Secret"
-  ],
-  "players": [
+  "title": "GfaU Bingo",
+  "years": [
     {
-      "name": "Tido",
-      "card": [
-        "BTC<$50,000",
-        "FED EFFR weniger als 2.75%",
-        "GTA VI wird nicht released",
-        "Deutschland verliert rang in pisa studie",
-        "Valle Secret",
+      "year": 2026,
+      "gridSize": 5,
+      "calledSentences": [
+        "USA entsendet bodentruppen in ein fremdes Land"
+      ],
+      "expiredSentences": [],
+      "secrets": ["Tido Secret", "Freddy Secret", "Vinc Secret", "Valle Secret"],
+      "players": [
+        {
+          "name": "Tido",
+          "card": [
+            "BTC<$50,000",
+            "FED EFFR weniger als 2.75%",
+            "GTA VI wird nicht released",
+            "Deutschland verliert rang in pisa studie",
+            "Valle Secret",
 
-        "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
-        "Ukraine kriegt endet NICHT",
-        "Deutschland gewinnt WM 2026",
-        "Putin stribt",
-        "Erdbeben >6.0 trifft Istanbul",
+            "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
+            "Ukraine kriegt endet NICHT",
+            "Deutschland gewinnt WM 2026",
+            "Putin stribt",
+            "Erdbeben >6.0 trifft Istanbul",
 
-        "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
-        "Vinc Secret",
-        "O",
-        "USA fällt in recession",
-        "NVDA 7 trillion dollar market cap",
+            "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
+            "Vinc Secret",
+            "O",
+            "USA fällt in recession",
+            "NVDA 7 trillion dollar market cap",
 
-        "Tido Secret",
-        "Strom preis über EUR90 pro MWh",
-        "KI chat wird mit Werbung eingebaut werden in 2026",
-        "USA entsendet bodentruppen in ein fremdes Land",
-        "MSTR verkauft Bitcoins in 2026",
+            "Tido Secret",
+            "Strom preis über EUR90 pro MWh",
+            "KI chat wird mit Werbung eingebaut werden in 2026",
+            "USA entsendet bodentruppen in ein fremdes Land",
+            "MSTR verkauft Bitcoins in 2026",
 
-        "Freddy Secret",
-        "AFD hold durchschn. 33% in 5 Landtagswahlen",
-        "Iphone fold release",
-        "Deutsche Bahn <10% verspätung in einem Monat",
-        "Donald Trump bekommt einen Nobelpreis"
+            "Freddy Secret",
+            "AFD hold durchschn. 33% in 5 Landtagswahlen",
+            "Iphone fold release",
+            "Deutsche Bahn <10% verspätung in einem Monat",
+            "Donald Trump bekommt einen Nobelpreis"
+          ]
+        },
+        {
+          "name": "Freddy",
+          "card": [
+            "Deutsche Bahn <10% verspätung in einem Monat",
+            "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
+            "Strom preis über EUR90 pro MWh",
+            "Vinc Secret",
+            "KI chat wird mit Werbung eingebaut werden in 2026",
+
+            "Donald Trump bekommt einen Nobelpreis",
+            "USA entsendet bodentruppen in ein fremdes Land",
+            "FED EFFR weniger als 2.75%",
+            "GTA VI wird nicht released",
+            "Erdbeben >6.0 trifft Istanbul",
+
+            "NVDA 7 trillion dollar market cap",
+            "Tido Secret",
+            "O",
+            "Freddy Secret",
+            "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
+
+            "Ukraine kriegt endet NICHT",
+            "BTC<$50,000",
+            "AFD hold durchschn. 33% in 5 Landtagswahlen",
+            "Iphone fold release",
+            "Deutschland gewinnt WM 2026",
+
+            "USA fällt in recession",
+            "Putin stribt",
+            "Deutschland verliert rang in pisa studie",
+            "MSTR verkauft Bitcoins in 2026",
+            "Valle Secret"
+          ]
+        },
+        {
+          "name": "Vinc",
+          "card": [
+            "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
+            "Iphone fold release",
+            "FED EFFR weniger als 2.75%",
+            "MSTR verkauft Bitcoins in 2026",
+            "GTA VI wird nicht released",
+
+            "BTC<$50,000",
+            "USA entsendet bodentruppen in ein fremdes Land",
+            "Donald Trump bekommt einen Nobelpreis",
+            "Valle Secret",
+            "Strom preis über EUR90 pro MWh",
+
+            "Putin stribt",
+            "Tido Secret",
+            "O",
+            "AFD hold durchschn. 33% in 5 Landtagswahlen",
+            "Deutschland gewinnt WM 2026",
+
+            "NVDA 7 trillion dollar market cap",
+            "Erdbeben >6.0 trifft Istanbul",
+            "Deutsche Bahn <10% verspätung in einem Monat",
+            "Vinc Secret",
+            "Ukraine kriegt endet NICHT",
+
+            "Freddy Secret",
+            "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
+            "Deutschland verliert rang in pisa studie",
+            "KI chat wird mit Werbung eingebaut werden in 2026",
+            "USA fällt in recession"
+          ]
+        },
+        {
+          "name": "Valle",
+          "card": [
+            "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
+            "Freddy Secret",
+            "MSTR verkauft Bitcoins in 2026",
+            "Ukraine kriegt endet NICHT",
+            "Donald Trump bekommt einen Nobelpreis",
+
+            "AFD hold durchschn. 33% in 5 Landtagswahlen",
+            "USA entsendet bodentruppen in ein fremdes Land",
+            "NVDA 7 trillion dollar market cap",
+            "Deutschland gewinnt WM 2026",
+            "Tido Secret",
+
+            "KI chat wird mit Werbung eingebaut werden in 2026",
+            "Iphone fold release",
+            "O",
+            "Deutsche Bahn <10% verspätung in einem Monat",
+            "Erdbeben >6.0 trifft Istanbul",
+
+            "Deutschland verliert rang in pisa studie",
+            "Putin stribt",
+            "GTA VI wird nicht released",
+            "FED EFFR weniger als 2.75%",
+            "Strom preis über EUR90 pro MWh",
+
+            "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
+            "USA fällt in recession",
+            "BTC<$50,000",
+            "Vinc Secret",
+            "Valle Secret"
+          ]
+        }
       ]
     },
     {
-      "name": "Freddy",
-      "card": [
-        "Deutsche Bahn <10% verspätung in einem Monat",
-        "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
-        "Strom preis über EUR90 pro MWh",
-        "Vinc Secret",
-        "KI chat wird mit Werbung eingebaut werden in 2026",
+      "year": 2025,
+      "gridSize": 5,
+      "calledSentences": [
+        "Merz wird Bundeskanzler",
+        "Papst Stirbt",
+        "Waldsbrände in Australien",
+        "Krieg zwischen Israel und Iran",
+        "Dax schließt mind. 1 tag über 21,000 punkte",
+        "Die Linke kommt in das Parlament (Deutschland)",
+        "FED macht mehr als 50 basis punkte reduzierung",
+        "Krieg zwischen Pakistan und Indien",
+        "Trump unterzeichnet min. 15 Gesetze"
+      ],
+      "expiredSentences": [
+        "ECB macht weniger als 100 basis punkte und letztins reduzierung",
+        "Chiefs holen nächsten SuperBowl"
+      ],
+      "secrets": ["et"],
+      "players": [
+        {
+          "name": "Valle",
+          "card": [
+            "Freddy verliert seinen Führerschein",
+            "Merz wird Bundeskanzler",
+            "Papst Stirbt",
+            "ECB macht weniger als 100 basis punkte und letztins reduzierung",
+            "Bitcoin erreicht die 140.000 USD",
 
-        "Donald Trump bekommt einen Nobelpreis",
-        "USA entsendet bodentruppen in ein fremdes Land",
-        "FED EFFR weniger als 2.75%",
-        "GTA VI wird nicht released",
-        "Erdbeben >6.0 trifft Istanbul",
+            "et",
+            "Größter Cocain Fund mit über 50 Tonnen",
+            "Trump wird die USA zu einem autoritären Regime umformen",
+            "Waldsbrände in Australien",
+            "Krieg zwischen Pakistan und Indien",
 
-        "NVDA 7 trillion dollar market cap",
-        "Tido Secret",
-        "O",
-        "Freddy Secret",
-        "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
+            "Deutsche Bahn ist zu 90% pünktlich",
+            "Deutscher Autobauer meldet Konkurs an",
+            "O",
+            "Vincent verliert die Klimzug wette",
+            "BIP sinkt 2025 mehr als 0,1%",
 
-        "Ukraine kriegt endet NICHT",
-        "BTC<$50,000",
-        "AFD hold durchschn. 33% in 5 Landtagswahlen",
-        "Iphone fold release",
-        "Deutschland gewinnt WM 2026",
+            "Dax schließt mind. 1 tag über 21,000 punkte",
+            "Die Linke kommt in das Parlament (Deutschland)",
+            "FED macht mehr als 50 basis punkte reduzierung",
+            "Valle verliert seinen Führerschein",
+            "Chiefs holen nächsten SuperBowl",
 
-        "USA fällt in recession",
-        "Putin stribt",
-        "Deutschland verliert rang in pisa studie",
-        "MSTR verkauft Bitcoins in 2026",
-        "Valle Secret"
-      ]
-    },
-    {
-      "name": "Vinc",
-      "card": [
-        "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
-        "Iphone fold release",
-        "FED EFFR weniger als 2.75%",
-        "MSTR verkauft Bitcoins in 2026",
-        "GTA VI wird nicht released",
+            "Krieg zwischen Israel und Iran",
+            "Cannabis wird wieder illegal in Deutschland",
+            "USA gewinnt Territorium dazu",
+            "Trump unterzeichnet min. 15 Gesetze",
+            "Globale Erwärmung über 1,5°C"
+          ]
+        },
+        {
+          "name": "Vinc",
+          "card": [
+            "Trump unterzeichnet min. 15 Gesetze",
+            "Ukraine Krieg endet",
+            "Die Linke kommt in das Parlament (Deutschland)",
+            "Deutscher Autobauer meldet Konkurs an",
+            "FED macht mehr als 50 basis punkte reduzierung",
 
-        "BTC<$50,000",
-        "USA entsendet bodentruppen in ein fremdes Land",
-        "Donald Trump bekommt einen Nobelpreis",
-        "Valle Secret",
-        "Strom preis über EUR90 pro MWh",
+            "Globale Erwärmung über 1,5°C",
+            "Valle verliert seinen Führerschein",
+            "Merz wird Bundeskanzler",
+            "Papst Stirbt",
+            "Krieg zwischen Pakistan und Indien",
 
-        "Putin stribt",
-        "Tido Secret",
-        "O",
-        "AFD hold durchschn. 33% in 5 Landtagswahlen",
-        "Deutschland gewinnt WM 2026",
+            "BIP sinkt 2025 mehr als 0,1%",
+            "Dax schließt mind. 1 tag über 21,000 punkte",
+            "O",
+            "Krieg zwischen Israel und Iran",
+            "Deutsche Bahn ist zu 90% pünktlich",
 
-        "NVDA 7 trillion dollar market cap",
-        "Erdbeben >6.0 trifft Istanbul",
-        "Deutsche Bahn <10% verspätung in einem Monat",
-        "Vinc Secret",
-        "Ukraine kriegt endet NICHT",
+            "Größter Cocain Fund mit über 50 Tonnen",
+            "Freddy verliert seinen Führerschein",
+            "Cannabis wird wieder illegal in Deutschland",
+            "USA gewinnt Territorium dazu",
+            "Trump wird die USA zu einem autoritären Regime umformen",
 
-        "Freddy Secret",
-        "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
-        "Deutschland verliert rang in pisa studie",
-        "KI chat wird mit Werbung eingebaut werden in 2026",
-        "USA fällt in recession"
-      ]
-    },
-    {
-      "name": "Valle",
-      "card": [
-        "Deutsche Autobauer verlieren keinen EV Marktanteil in 2026",
-        "Freddy Secret",
-        "MSTR verkauft Bitcoins in 2026",
-        "Ukraine kriegt endet NICHT",
-        "Donald Trump bekommt einen Nobelpreis",
+            "Vincent verliert die Klimzug wette",
+            "Waldsbrände in Australien",
+            "ECB macht weniger als 100 basis punkte und letztins reduzierung",
+            "Chiefs holen nächsten SuperBowl",
+            "Bitcoin erreicht die 140.000 USD"
+          ]
+        },
+        {
+          "name": "Tido",
+          "card": [
+            "et",
+            "USA gewinnt Territorium dazu",
+            "Merz wird Bundeskanzler",
+            "Chiefs holen nächsten SuperBowl",
+            "Papst Stirbt",
 
-        "AFD hold durchschn. 33% in 5 Landtagswahlen",
-        "USA entsendet bodentruppen in ein fremdes Land",
-        "NVDA 7 trillion dollar market cap",
-        "Deutschland gewinnt WM 2026",
-        "Tido Secret",
+            "Freddy verliert seinen Führerschein",
+            "Valle verliert seinen Führerschein",
+            "Globale Erwärmung über 1,5°C",
+            "Bitcoin erreicht die 140.000 USD",
+            "Die Linke kommt in das Parlament (Deutschland)",
 
-        "KI chat wird mit Werbung eingebaut werden in 2026",
-        "Iphone fold release",
-        "O",
-        "Deutsche Bahn <10% verspätung in einem Monat",
-        "Erdbeben >6.0 trifft Istanbul",
+            "Waldsbrände in Australien",
+            "Dax schließt mind. 1 tag über 21,000 punkte",
+            "O",
+            "Cannabis wird wieder illegal in Deutschland",
+            "Trump wird die USA zu einem autoritären Regime umformen",
 
-        "Deutschland verliert rang in pisa studie",
-        "Putin stribt",
-        "GTA VI wird nicht released",
-        "FED EFFR weniger als 2.75%",
-        "Strom preis über EUR90 pro MWh",
+            "BIP sinkt 2025 mehr als 0,1%",
+            "Krieg zwischen Pakistan und Indien",
+            "Trump unterzeichnet min. 15 Gesetze",
+            "Deutscher Autobauer meldet Konkurs an",
+            "Größter Cocain Fund mit über 50 Tonnen",
 
-        "Jemand verdient mehr als 10K brutto für 2 monate im jahr",
-        "USA fällt in recession",
-        "BTC<$50,000",
-        "Vinc Secret",
-        "Valle Secret"
+            "Krieg zwischen Israel und Iran",
+            "Deutsche Bahn ist zu 90% pünktlich",
+            "ECB macht weniger als 100 basis punkte und letztins reduzierung",
+            "FED macht mehr als 50 basis punkte reduzierung",
+            "Vincent verliert die Klimzug wette"
+          ]
+        },
+        {
+          "name": "Freddy",
+          "card": [
+            "Deutsche Bahn ist zu 90% pünktlich",
+            "Krieg zwischen Israel und Iran",
+            "Chiefs holen nächsten SuperBowl",
+            "Größter Cocain Fund mit über 50 Tonnen",
+            "Globale Erwärmung über 1,5°C",
+
+            "Cannabis wird wieder illegal in Deutschland",
+            "Valle verliert seinen Führerschein",
+            "BIP sinkt 2025 mehr als 0,1%",
+            "Trump wird die USA zu einem autoritären Regime umformen",
+            "Dax schließt mind. 1 tag über 21,000 punkte",
+
+            "FED macht mehr als 50 basis punkte reduzierung",
+            "USA gewinnt Territorium dazu",
+            "O",
+            "Trump unterzeichnet min. 15 Gesetze",
+            "Krieg zwischen Pakistan und Indien",
+
+            "ECB macht weniger als 100 basis punkte und letztins reduzierung",
+            "Waldsbrände in Australien",
+            "Papst Stirbt",
+            "Merz wird Bundeskanzler",
+            "Die Linke kommt in das Parlament (Deutschland)",
+
+            "Ukraine Krieg endet",
+            "Vincent verliert die Klimzug wette",
+            "Freddy verliert seinen Führerschein",
+            "Deutscher Autobauer meldet Konkurs an",
+            "Bitcoin erreicht die 140.000 USD"
+          ]
+        }
       ]
     }
   ]
