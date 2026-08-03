@@ -57,9 +57,13 @@
       "gridSize": 5,
       "calledSentences": [
         "USA entsendet bodentruppen in ein fremdes Land",
-        "KI chat wird mit Werbung eingebaut werden in 2026"
+        "KI chat wird mit Werbung eingebaut werden in 2026",
+        "MSTR verkauft Bitcoins in 2026",
+        "Strompreis über EUR90 pro MWh"
       ],
-      "expiredSentences": [],
+      "expiredSentences": [
+        "Deutschland gewinnt WM 2026"
+      ],
       "secrets": ["Tido Secret", "Freddy Secret", "Vinc Secret", "Valle Secret"],
       "players": [
         {
